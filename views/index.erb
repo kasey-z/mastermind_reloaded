@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MasterMind</title>
+  </head>
+  <body>
+    <h1>Mastermind</h1>
+    <p>Introduction</p>
+    <div class="introduction">
+      <p>In this game, the computer will generate a secret code with four letter from six letters. </p>
+      <p>The colors could be duplicated. And you have 12 chances to decode.</p>
+      <p>After each guess, the computer will give the answer upon how well the guess is.</p>
+      <p>"+": both color and position is correct</p>
+      <p>"-": only color is correct, and position is wrong</p>
+    </div>
+
+    <% if $pick != [] %>
+      <table>
+      <% data.each do |row|%>
+      <tr>
+        <td><%= row[0] %></td>
+        <td><%= row[1] %></td>
+        <td><%= row[2] %></td>
+        <td><%= row[3] %></td>
+        <td><%= row[4] %></td>
+        <td><%= row[5] %></td>
+      </tr>
+      <% end %>
+      </table>
+    <% end %>
+
+    <form method="POST" action="/index">
+
+      <select class="" name="first">
+        <option value="R">Red</option>
+        <option value="B">Blue</option>
+        <option value="Y">Yellow</option>
+        <option value="P">Purple</option>
+        <option value="G">Grey</option>
+        <option value="T">Turquoise</option>
+      </select>
+
+      <select class=""  name="second">
+        <option value="R">Red</option>
+        <option value="B">Blue</option>
+        <option value="Y">Yellow</option>
+        <option value="P">Purple</option>
+        <option value="G">Grey</option>
+        <option value="T">Turquoise</option>
+      </select>
+
+      <select class="" name="third">
+        <option value="R">Red</option>
+        <option value="B">Blue</option>
+        <option value="Y">Yellow</option>
+        <option value="P">Purple</option>
+        <option value="G">Grey</option>
+        <option value="T">Turquoise</option>
+      </select>
+
+      <select class=""  name="fourth">
+        <option value="R">Red</option>
+        <option value="B">Blue</option>
+        <option value="Y">Yellow</option>
+        <option value="P">Purple</option>
+        <option value="G">Grey</option>
+        <option value="T">Turquoise</option>
+      </select>
+
+      <input type="submit" value="Guess!">
+    </form>
+    <p><%= message %></p>
+
+  </body>
+</html>

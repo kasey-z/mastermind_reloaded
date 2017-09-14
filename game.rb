@@ -1,15 +1,12 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-
-
-
 get '/' do
   $game = Game.new
   $pick = []
   $i = 0
   $win = false
-  erb :index, :locals => {:data => [] , :message => $game.secret_balls }
+  erb :index, :locals => {:data => [] , :message => '' }
 end
 
 post '/index' do

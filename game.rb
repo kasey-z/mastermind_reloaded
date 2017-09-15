@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/reloader'
 
 get '/' do
   $game = Game.new
@@ -16,13 +15,12 @@ post '/index' do
   unless $win == true || $i >= 13
     message = $game.game_message(guess_answer)
     $pick << ([$i] + guess_code + [guess_answer])
+    $pick << ([''] + $game.secret_balls + ["Secret"]) if $game.win?(guess_answer) || $game.lose?(guess_answer)
     erb :index, :locals => {:data => $pick , :message => message }
   else
     redirect to('/')
   end
 end
-
-
 
 $colors=["R","B","Y","P","G","T"]
 

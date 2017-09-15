@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
     <title>MasterMind</title>
   </head>
   <body>
     <h1>Mastermind</h1>
-    <p>Introduction</p>
+    <p class="intro">Introduction</p>
     <div class="introduction">
-      <p>In this game, the computer will generate a secret code with four letter from six letters. </p>
-      <p>The colors could be duplicated. And you have 12 chances to decode.</p>
-      <p>After each guess, the computer will give the answer upon how well the guess is.</p>
-      <p>"+": both color and position is correct</p>
-      <p>"-": only color is correct, and position is wrong</p>
+      <p class="small">In this game, the computer will generate a secret code with four letter from six letters. </p>
+      <p class="small">The colors could be duplicated. And you have 12 chances to decode.</p>
+      <p class="small">After each guess, the computer will give the answer upon how well the guess is.</p>
+
+      <p class="small">"+": both color and position is correct</p>
+      <p class="small">"-": only color is correct, and position is wrong</p>
     </div>
 
-    <% if $pick != [] %>
-      <table>
-      <% data.each do |row|%>
-      <tr>
-        <td><%= row[0] %></td>
-        <td><%= row[1] %></td>
-        <td><%= row[2] %></td>
-        <td><%= row[3] %></td>
-        <td><%= row[4] %></td>
-        <td><%= row[5] %></td>
-      </tr>
-      <% end %>
-      </table>
-    <% end %>
+    <div class="table">
+      <% if $pick != [] %>
+        <table align="center">
+          <tr>
+            <td class="number">No.</td>
+            <td> 1 </td>
+            <td> 2 </td>
+            <td> 3 </td>
+            <td> 4 </td>
+            <td class="answer"> Answer</td>
+          </tr>
+        <% data.each do |row|%>
+          <tr>
+            <td class="number"><%= row[0] %></td>
+            <td><%= row[1] %></td>
+            <td><%= row[2] %></td>
+            <td><%= row[3] %></td>
+            <td><%= row[4] %></td>
+            <td class="answer"><%= row[5] %></td>
+          </tr>
+          <% end %>
+        </table>
+        <% end %>
+    </div>
+
 
     <form method="POST" action="/index">
 
@@ -67,9 +81,9 @@
         <option value="T">Turquoise</option>
       </select>
 
-      <input type="submit" value="Guess!">
+      <input class="buttom" type="submit" value="Guess!">
     </form>
-    <p><%= message %></p>
+    <p class="message"><%= message %></p>
 
   </body>
 </html>
